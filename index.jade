@@ -1,0 +1,121 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title='Ryu BMP Server'
+        link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/gumby/2.6.0/css/gumby.min.css')
+        link(href='http://fonts.googleapis.com/css?family=Allura' rel='stylesheet' type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700italic' rel='stylesheet' type='text/css')
+        link(rel='stylesheet/less', type="text/css" href='/public/stylesheets/main.less')
+        script(src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.5/less.min.js")
+        body(data-target="body")
+
+        div#iconbar
+            div.icon
+                a(href='https://twitter.com/ryusdn' target='_blank')
+                    i.icon-twitter
+            div.icon
+                a(href='https://github.com/osrg/ryu' target='_blank')
+                    i.icon-github
+            div.icon
+                a(href='https://lists.sourceforge.net/lists/listinfo/ryu-devel' target='_blank')
+                    i.icon-mail
+
+        header
+            h1#title Ryu BMP Server
+        section.row#contents
+            div.row#what
+                h2 What is this.
+                div
+                    p
+                        | Ryu BMP Server is a simple BMP server.
+                        | Now it supports BMPv3.
+                        | It is implemented using 
+                        a(href='http://google.com') Ryu SDN Framework
+                        | .
+                        | Tested with Cisco ASR1000 (IOS-XE 3.13S) and Juniper MX960 (JUNOS 13.3R1.8).
+
+                    h3 BMP
+                    p
+                        | BMP(BGP Monitoring Protocol) is a protocol to monitor BGP routers.
+                        | It can get a full dump of adj-rib-in.
+                        | Check 
+                        a(href='http://tools.ietf.org/html/draft-ietf-grow-bmp-07' target='_blank') here
+                        |  for the BMP spec.
+            div.row#how
+                h2 How to use.
+                div
+                    p
+                        | You can use Ryu BMP Server by installing Ryu.
+                        | There are several ways
+                        | to install Ryu. The easiest way is to use 
+                        a(href='https://registry.hub.docker.com/u/osrg/ryu/' target='_blank') our docker image
+                        | .
+
+                    div
+                        p
+                            span.step 1.
+                            | install docker
+                        div.step
+                            pre
+                                code.bash $ apt-get install docker.io
+                    div
+                        p
+                            span.step 2.
+                            | pull our docker image
+                        div.step
+                            pre
+                                code.bash $ docker pull osrg/ryu
+                    div
+                        p
+                            span.step 3.
+                            | run the container, publish a container's port, then login
+                        div.step
+                            pre
+                                code.bash $ docker run -it -p 11019:11019 osrg/ryu /bin/bash
+                    div
+                        p
+                            span.step 4.
+                            | run Ryu BMP Server
+                        div.step
+                            pre
+                                code.bash $ ryu run ./ryu-master/ryu/app/bmpstation
+                            | use
+                            span.env --verbose
+                            | option to show logs in stdin.
+                            pre
+                                code.bash $ ryu run --verbose ./ryu-master/ryu/app/bmpstation
+            div.row#tips
+                h2 Tips.
+                div
+                    p You can use environmental variables to configure Ryu BMP server.
+
+                    ul
+                        li
+                            p
+                                span.step 1.
+                                | change listening host and port
+                            div.step
+                                | By default, Ryu BMP server listens on 0.0.0.0:11019. Use
+                                span.env RYU_BMP_SERVER_HOST
+                                | and
+                                span.env RYU_BMP_SERVER_PORT
+                                | to change this behaviour.
+                        li
+                            p
+                                span.step 2.
+                                | change log location
+                            div.step
+                                | Use
+                                span.env RYU_BMP_OUTPUT_FILE
+                                |  to change the location of log file.
+            div.row#next
+                h2 What is Next.
+                div
+                    p
+                        | Ryu BMP server is under development. Your contribution is welcomed.
+                        | Subscribe the 
+                        a(href='https://lists.sourceforge.net/lists/listinfo/ryu-devel' target='_blank') mailing-list
+                        |  and join our community.
+        footer
+            p#copyright Copyright &copy Ryu SDN Framework Community. 2014

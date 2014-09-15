@@ -1,0 +1,137 @@
+@console-bg: #efefef;
+@console-gray: #fff;
+@bg: #58c5ca;
+@a: #F023B6;
+@font-color: #555;
+//@row-bg: #fff;
+@row-bg: #eeeeee;
+//@row-bg: #f6eedb;
+//@icon: #ee5e59;
+//@icon: #FC6114;
+//@icon: #ec3f3e;
+//@icon: #ecb143;
+@icon: #f4f351;
+
+@title-height: 150px;
+
+header {
+//    box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+
+footer {
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.2) inset;
+}
+
+body {
+    background-color: @bg;
+}
+
+body, div, h1, h2, h3, a, p {
+    font-family: 'Ubuntu', sans-serif;
+    color: @font-color;
+}
+
+a {
+    color: @a;
+    &:hover {
+        color: @a - #333;
+        text-decoration: underline;
+    }
+}
+
+#title{
+    font-style: italic;
+    color: @row-bg + #222;
+    text-align: center;
+    background-color: @bg - #111;
+    height: @title-height;
+    padding-top: @title-height/4 - 5px;
+    font-size: @title-height/2;
+}
+
+div#iconbar {
+    float: right;
+    padding-top: @title-height + 40px;
+    margin-right: 15px;
+
+    a {
+        color: @icon;
+        :hover {
+            text-decoration: none;
+            color: @icon - #222;
+        }
+    }
+
+    i {
+        font-size: 40px;
+        height: 40px;
+        width: 40px;
+    }
+}
+
+h2, h3 {
+    color: @font-color - #222;
+    font-style: italic;
+}
+
+#contents .row {
+    width: 840px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: @row-bg;
+    box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.2);
+    border-radius: 2px;
+
+    div {
+        margin: 0px 10px;
+    }
+
+}
+
+span {
+    &.step {
+        margin-right: 10px;
+        font-style: italic;
+        font-size: 110%;
+    }
+    &.env {
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 3px;
+        font-style: bold;
+        font-size: 90%;
+        font-family: monospace;
+        background-color: @row-bg - #171717;
+    }
+}
+
+pre {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+code {
+    background-color: @row-bg - #171717;
+    border-radius: 3px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 90%;
+    font-family: monospace;
+}
+
+#copyright {
+    color: @font-color;
+    float: right;
+    padding-right: 20px;
+}
